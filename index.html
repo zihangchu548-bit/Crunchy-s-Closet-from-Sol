@@ -1,143 +1,95 @@
 
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Crunchy's Closet by Sol</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🐾🍪 Crunchy's Closet by Sol 🖤💜</title>
     <style>
         body {
-            background-color: #fff8f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff6f2;
             background-image: repeating-linear-gradient(
                 45deg,
-                transparent,
-                transparent 38px,
-                #ffeef6 38px,
-                #ffeef6 40px
-            ),
-            repeating-linear-gradient(
+                #fff6f2 0,
+                #fff6f2 40px,
+                transparent 40px,
+                transparent 80px
+            ), repeating-linear-gradient(
                 -45deg,
-                transparent,
-                transparent 38px,
-                #ffeef6 38px,
-                #ffeef6 40px
+                #fff6f2 0,
+                #fff6f2 40px,
+                transparent 40px,
+                transparent 80px
             );
             background-size: 80px 80px;
-            font-family: "Arial Rounded MT Bold", "Hiragino Sans GB", sans-serif;
-            margin: 0;
-            padding: 2em;
+            background-blend-mode: lighten;
+            padding: 20px;
+        }
+
+        .logo {
             text-align: center;
-        }
-
-        .title {
             font-size: 2em;
-            color: #c84b8e;
-            font-weight: bold;
+            margin-bottom: 1em;
         }
 
-        .emoji-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            font-size: 32px;
-            pointer-events: none;
-            z-index: 0;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, 80px);
-            grid-auto-rows: 80px;
-            opacity: 0.08;
+        .card {
+            border-radius: 16px;
+            padding: 20px;
+            margin: 10px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 600px;
+            background: white;
+            transition: transform 0.3s ease;
         }
 
-        .emoji-bg span {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .card:hover {
+            transform: translateY(-5px);
         }
 
-        .main-buttons {
-            margin: 1em 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        button {
-            font-size: 1em;
-            padding: 0.5em 1em;
-            margin: 0.3em;
+        .button {
+            background: pink;
+            color: black;
+            padding: 10px 20px;
             border: none;
-            border-radius: 1em;
-            background-color: #da88b0;
-            color: white;
+            border-radius: 12px;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
         }
 
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        .button:after {
+            content: "";
+            background: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            border-radius: 100%;
+            width: 0;
+            height: 0;
+            transition: width 0.4s ease, height 0.4s ease;
         }
 
-        #addForm {
-            display: none;
-            flex-direction: column;
-            gap: 0.5em;
-            margin-top: 1em;
+        .button:active:after {
+            width: 200px;
+            height: 200px;
         }
 
-        input {
-            padding: 0.5em;
-            font-size: 1em;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .footer {
-            margin-top: 2em;
+        footer {
+            text-align: center;
+            margin-top: 50px;
             font-size: 0.9em;
-            color: #888;
         }
     </style>
 </head>
 <body>
-    <div class="emoji-bg" id="emojiBg"></div>
-
-    <div class="title">🐾🍪Crunchy's Closet by Sol🖤💜</div>
-
-    <div class="main-buttons">
-        <button onclick="toggleForm()">添加裙子</button>
+    <div class="logo">🐾🍪 Crunchy's Closet by Sol 🖤💜</div>
+    <div class="card">
+        <p>这是最终 1.0 版本的静态页面结构示例，用于前端样式与背景测试。</p>
     </div>
-
-    <div id="addForm">
-        <input type="text" placeholder="裙子名称">
-        <input type="text" placeholder="状态（定金 / 尾款 / 已入柜）">
-        <input type="number" placeholder="金额">
-        <input type="date" placeholder="购买日期">
-        <button onclick="submitSkirt()">保存</button>
-    </div>
-
-    <div class="footer">Powered by Sol 🪡</div>
-
-    <script>
-        function toggleForm() {
-            const form = document.getElementById("addForm");
-            form.style.display = form.style.display === "flex" ? "none" : "flex";
-        }
-
-        function submitSkirt() {
-            alert("裙子已添加！");
-        }
-
-        function generateEmojiBg() {
-            const bg = document.getElementById("emojiBg");
-            for (let i = 0; i < 200; i++) {
-                const span = document.createElement("span");
-                span.textContent = i % 2 === 0 ? "🐾" : "🍪";
-                bg.appendChild(span);
-            }
-        }
-
-        generateEmojiBg();
-    </script>
+    <button class="button">添加裙子</button>
+    <footer>Powered by Sol🪡</footer>
 </body>
 </html>
